@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend GET Request</title>
+  </head>
+  <body>
+    <h1>Frontend GET Request</h1>
+    <button onclick="makeGetRequest()">Make GET Request</button>
+
+    <script>
+      function makeGetRequest() {
+        fetch("http://localhost:3000/api/data")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            alert("Response from backend: " + JSON.stringify(data));
+          })
+          .catch((error) => {
+            console.error(
+              "There was a problem with the fetch operation:",
+              error
+            );
+            alert("Failed to make GET request: " + error.message);
+          });
+      }
+    </script>
+  </body>
+</html>
