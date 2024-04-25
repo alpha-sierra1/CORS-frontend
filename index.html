@@ -11,7 +11,7 @@
 
     <script>
       function makeGetRequest() {
-        fetch("http://localhost:3000/api/data")
+        fetch("https://cors-trial.onrender.com/")
           .then((response) => {
             if (!response.ok) {
               throw new Error("Network response was not ok");
@@ -20,14 +20,14 @@
           })
           .then((data) => {
             console.log(data);
-            alert("Response from backend: " + JSON.stringify(data));
+            // alert("Response from backend: " + JSON.stringify(data));
           })
           .catch((error) => {
             console.error(
               "There was a problem with the fetch operation:",
               error
             );
-            alert("Failed to make GET request: " + error.message);
+            // alert("Failed to make GET request: " + error.message);
           });
       }
     </script>
